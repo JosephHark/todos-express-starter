@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "Starter todo app using Express, Passport, and SQLite for sign in.",
+  "main": "app.js",
   "keywords": [
     "example",
     "express",
@@ -10,11 +11,8 @@
     "sqlite"
   ],
   "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "https://www.jaredhanson.me/"
+    "name": "JHark"
   },
-  "homepage": "https://github.com/passport/todos-express-starter",
   "repository": {
     "type": "git",
     "url": "git://github.com/passport/todos-express-starter.git"
@@ -28,17 +26,22 @@
   },
   "license": "Unlicense",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "dependencies": {
+    "connect-sqlite3": "^0.9.13",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.6.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-session": "^1.17.2",
     "http-errors": "~1.6.3",
     "mkdirp": "^1.0.4",
     "morgan": "~1.9.1",
+    "passport": "^0.5.2",
+    "passport-google-oidc": "^0.1.0",
     "pluralize": "^8.0.0",
     "sqlite3": "^5.0.2"
   }
