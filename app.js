@@ -17,6 +17,7 @@ var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 
 var app = express();
+const bodyParser = require('body-parser');
 
 app
   .use(bodyParser.json())
