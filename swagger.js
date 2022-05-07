@@ -5,7 +5,7 @@ const doc = {
         title: 'My API',
         description: 'Temple API'
     },
-    host: 'murmuring-journey-19412.herokuapp.com',
+    host: 'limitless-retreat-55956.herokuapp.com',
     schemes: ['https']
 };
 
