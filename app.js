@@ -2,6 +2,9 @@ require('dotenv').config();
 
 var createError = require('http-errors');
 var express = require('express');
+const mongodb = require('./db/connect');
+
+const port = process.env.PORT || 8080;
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -14,6 +17,14 @@ var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 
 var app = express();
+
+app
+  .use(bodyParser.json())
+  .use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  })
+  .use('/', require('./routes'));
 
 app.locals.pluralize = require('pluralize');
 
@@ -63,3 +74,12 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+mongodb.initDb((err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    app.listen(port);
+    console.log(`Connected to DB and listening on ${port}`);
+  }
+});
